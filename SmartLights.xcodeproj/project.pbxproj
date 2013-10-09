@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B019568A17FBEDA90088A145 /* LightSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B019568917FBEDA90088A145 /* LightSetupViewController.m */; };
+		B019568F17FBEE630088A145 /* UICircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = B019568E17FBEE630088A145 /* UICircularSlider.m */; };
+		B019569217FC14E50088A145 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = B019569117FC14E50088A145 /* ImageService.m */; };
+		B019569617FD3A040088A145 /* UIView+ColorOfPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B019569417FD3A040088A145 /* UIView+ColorOfPoint.m */; };
+		B0195699180264E70088A145 /* GroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0195698180264E70088A145 /* GroupsViewController.m */; };
+		B019569E180299AF0088A145 /* DemoGroupFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B019569D180299AF0088A145 /* DemoGroupFinder.m */; };
+		B01956A118029D030088A145 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956A018029D030088A145 /* Group.m */; };
+		B01956A51802C99F0088A145 /* NewGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956A41802C99F0088A145 /* NewGroupViewController.m */; };
+		B01956A91803086B0088A145 /* DemoProfileFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956A81803086B0088A145 /* DemoProfileFinder.m */; };
+		B01956AC18030B040088A145 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956AB18030B040088A145 /* Profile.m */; };
+		B01956AF180317B20088A145 /* LightView.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956AE180317B20088A145 /* LightView.m */; };
+		B01956B21803D93A0088A145 /* ProfileGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956B11803D93A0088A145 /* ProfileGroupViewController.m */; };
+		B01956B51803DE0D0088A145 /* NewProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956B41803DE0D0088A145 /* NewProfileViewController.m */; };
+		B01956B81803EF110088A145 /* LightCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = B01956B71803EF110088A145 /* LightCopier.m */; };
 		B07A68AD17F7CE3600F8913F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A68AC17F7CE3600F8913F /* Foundation.framework */; };
 		B07A68AF17F7CE3600F8913F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A68AE17F7CE3600F8913F /* CoreGraphics.framework */; };
 		B07A68B117F7CE3600F8913F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A68B017F7CE3600F8913F /* UIKit.framework */; };
@@ -22,6 +36,8 @@
 		B07A68D117F7CE3600F8913F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A68B017F7CE3600F8913F /* UIKit.framework */; };
 		B07A68D917F7CE3600F8913F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B07A68D717F7CE3600F8913F /* InfoPlist.strings */; };
 		B07A68DB17F7CE3600F8913F /* SmartLightsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68DA17F7CE3600F8913F /* SmartLightsTests.m */; };
+		B07A68E917F94A6F00F8913F /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68E817F94A6F00F8913F /* Light.m */; };
+		B07A68EE17F94BC500F8913F /* DemoLightsFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +51,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B019568217F95DFD0088A145 /* LightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightController.h; sourceTree = "<group>"; };
+		B019568817FBEDA90088A145 /* LightSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightSetupViewController.h; sourceTree = "<group>"; };
+		B019568917FBEDA90088A145 /* LightSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightSetupViewController.m; sourceTree = "<group>"; };
+		B019568D17FBEE630088A145 /* UICircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICircularSlider.h; sourceTree = "<group>"; };
+		B019568E17FBEE630088A145 /* UICircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICircularSlider.m; sourceTree = "<group>"; };
+		B019569017FC14E50088A145 /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
+		B019569117FC14E50088A145 /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		B019569417FD3A040088A145 /* UIView+ColorOfPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorOfPoint.m"; sourceTree = "<group>"; };
+		B019569517FD3A040088A145 /* UIView+ColorOfPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorOfPoint.h"; sourceTree = "<group>"; };
+		B0195697180264E70088A145 /* GroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupsViewController.h; sourceTree = "<group>"; };
+		B0195698180264E70088A145 /* GroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupsViewController.m; sourceTree = "<group>"; };
+		B019569A180267640088A145 /* LightGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LightGroup.h; path = ../LightGroup.h; sourceTree = "<group>"; };
+		B019569B180298EC0088A145 /* GroupFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupFinder.h; sourceTree = "<group>"; };
+		B019569C180299AF0088A145 /* DemoGroupFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoGroupFinder.h; sourceTree = "<group>"; };
+		B019569D180299AF0088A145 /* DemoGroupFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoGroupFinder.m; sourceTree = "<group>"; };
+		B019569F18029D030088A145 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		B01956A018029D030088A145 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		B01956A31802C99F0088A145 /* NewGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroupViewController.h; sourceTree = "<group>"; };
+		B01956A41802C99F0088A145 /* NewGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupViewController.m; sourceTree = "<group>"; };
+		B01956A6180305860088A145 /* ProfileFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileFinder.h; sourceTree = "<group>"; };
+		B01956A71803086B0088A145 /* DemoProfileFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProfileFinder.h; sourceTree = "<group>"; };
+		B01956A81803086B0088A145 /* DemoProfileFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProfileFinder.m; sourceTree = "<group>"; };
+		B01956AA18030B040088A145 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = ../Services/Profile.h; sourceTree = "<group>"; };
+		B01956AB18030B040088A145 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = ../Services/Profile.m; sourceTree = "<group>"; };
+		B01956AD180317B20088A145 /* LightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightView.h; sourceTree = "<group>"; };
+		B01956AE180317B20088A145 /* LightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightView.m; sourceTree = "<group>"; };
+		B01956B01803D93A0088A145 /* ProfileGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileGroupViewController.h; sourceTree = "<group>"; };
+		B01956B11803D93A0088A145 /* ProfileGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileGroupViewController.m; sourceTree = "<group>"; };
+		B01956B31803DE0D0088A145 /* NewProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProfileViewController.h; sourceTree = "<group>"; };
+		B01956B41803DE0D0088A145 /* NewProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProfileViewController.m; sourceTree = "<group>"; };
+		B01956B61803EF110088A145 /* LightCopier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightCopier.h; sourceTree = "<group>"; };
+		B01956B71803EF110088A145 /* LightCopier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightCopier.m; sourceTree = "<group>"; };
 		B07A68A917F7CE3600F8913F /* SmartLights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A68AC17F7CE3600F8913F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B07A68AE17F7CE3600F8913F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +104,12 @@
 		B07A68D617F7CE3600F8913F /* SmartLightsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SmartLightsTests-Info.plist"; sourceTree = "<group>"; };
 		B07A68D817F7CE3600F8913F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B07A68DA17F7CE3600F8913F /* SmartLightsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartLightsTests.m; sourceTree = "<group>"; };
+		B07A68E617F92AC700F8913F /* SmartLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartLight.h; sourceTree = "<group>"; };
+		B07A68E717F94A6F00F8913F /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		B07A68E817F94A6F00F8913F /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
+		B07A68EB17F94B9000F8913F /* LightsFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightsFinder.h; sourceTree = "<group>"; };
+		B07A68EC17F94BC500F8913F /* DemoLightsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoLightsFinder.h; sourceTree = "<group>"; };
+		B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoLightsFinder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +136,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B019568B17FBEE410088A145 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B019568C17FBEE630088A145 /* UICircularSlider */,
+				B01956AD180317B20088A145 /* LightView.h */,
+				B01956AE180317B20088A145 /* LightView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B019568C17FBEE630088A145 /* UICircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				B019568D17FBEE630088A145 /* UICircularSlider.h */,
+				B019568E17FBEE630088A145 /* UICircularSlider.m */,
+			);
+			path = UICircularSlider;
+			sourceTree = "<group>";
+		};
+		B019569317FD39F70088A145 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B019569517FD3A040088A145 /* UIView+ColorOfPoint.h */,
+				B019569417FD3A040088A145 /* UIView+ColorOfPoint.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B01956A21802C9750088A145 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B07A68BE17F7CE3600F8913F /* Main.storyboard */,
+				B07A68C117F7CE3600F8913F /* FirstViewController.h */,
+				B07A68C217F7CE3600F8913F /* FirstViewController.m */,
+				B07A68C417F7CE3600F8913F /* SecondViewController.h */,
+				B07A68C517F7CE3600F8913F /* SecondViewController.m */,
+				B019568817FBEDA90088A145 /* LightSetupViewController.h */,
+				B019568917FBEDA90088A145 /* LightSetupViewController.m */,
+				B0195697180264E70088A145 /* GroupsViewController.h */,
+				B0195698180264E70088A145 /* GroupsViewController.m */,
+				B01956A31802C99F0088A145 /* NewGroupViewController.h */,
+				B01956A41802C99F0088A145 /* NewGroupViewController.m */,
+				B01956B01803D93A0088A145 /* ProfileGroupViewController.h */,
+				B01956B11803D93A0088A145 /* ProfileGroupViewController.m */,
+				B01956B31803DE0D0088A145 /* NewProfileViewController.h */,
+				B01956B41803DE0D0088A145 /* NewProfileViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B07A68A017F7CE3600F8913F = {
 			isa = PBXGroup;
 			children = (
@@ -115,13 +219,13 @@
 		B07A68B217F7CE3600F8913F /* SmartLights */ = {
 			isa = PBXGroup;
 			children = (
+				B07A68E517F92A8400F8913F /* Models */,
+				B019568B17FBEE410088A145 /* Views */,
+				B07A68EA17F94B4F00F8913F /* Services */,
+				B019569317FD39F70088A145 /* Utils */,
+				B01956A21802C9750088A145 /* ViewControllers */,
 				B07A68BB17F7CE3600F8913F /* AppDelegate.h */,
 				B07A68BC17F7CE3600F8913F /* AppDelegate.m */,
-				B07A68BE17F7CE3600F8913F /* Main.storyboard */,
-				B07A68C117F7CE3600F8913F /* FirstViewController.h */,
-				B07A68C217F7CE3600F8913F /* FirstViewController.m */,
-				B07A68C417F7CE3600F8913F /* SecondViewController.h */,
-				B07A68C517F7CE3600F8913F /* SecondViewController.m */,
 				B07A68C717F7CE3600F8913F /* Images.xcassets */,
 				B07A68B317F7CE3600F8913F /* Supporting Files */,
 			);
@@ -155,6 +259,42 @@
 				B07A68D717F7CE3600F8913F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B07A68E517F92A8400F8913F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B07A68E617F92AC700F8913F /* SmartLight.h */,
+				B07A68E717F94A6F00F8913F /* Light.h */,
+				B07A68E817F94A6F00F8913F /* Light.m */,
+				B019569A180267640088A145 /* LightGroup.h */,
+				B019569F18029D030088A145 /* Group.h */,
+				B01956A018029D030088A145 /* Group.m */,
+				B01956AA18030B040088A145 /* Profile.h */,
+				B01956AB18030B040088A145 /* Profile.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B07A68EA17F94B4F00F8913F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B07A68EB17F94B9000F8913F /* LightsFinder.h */,
+				B07A68EC17F94BC500F8913F /* DemoLightsFinder.h */,
+				B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */,
+				B019568217F95DFD0088A145 /* LightController.h */,
+				B019569017FC14E50088A145 /* ImageService.h */,
+				B019569117FC14E50088A145 /* ImageService.m */,
+				B019569B180298EC0088A145 /* GroupFinder.h */,
+				B019569C180299AF0088A145 /* DemoGroupFinder.h */,
+				B019569D180299AF0088A145 /* DemoGroupFinder.m */,
+				B01956A6180305860088A145 /* ProfileFinder.h */,
+				B01956A71803086B0088A145 /* DemoProfileFinder.h */,
+				B01956A81803086B0088A145 /* DemoProfileFinder.m */,
+				B01956B61803EF110088A145 /* LightCopier.h */,
+				B01956B71803EF110088A145 /* LightCopier.m */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +395,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A68C617F7CE3600F8913F /* SecondViewController.m in Sources */,
+				B01956A51802C99F0088A145 /* NewGroupViewController.m in Sources */,
+				B019568A17FBEDA90088A145 /* LightSetupViewController.m in Sources */,
+				B01956A91803086B0088A145 /* DemoProfileFinder.m in Sources */,
+				B019569E180299AF0088A145 /* DemoGroupFinder.m in Sources */,
+				B01956AC18030B040088A145 /* Profile.m in Sources */,
+				B01956B81803EF110088A145 /* LightCopier.m in Sources */,
+				B01956B51803DE0D0088A145 /* NewProfileViewController.m in Sources */,
+				B0195699180264E70088A145 /* GroupsViewController.m in Sources */,
+				B01956A118029D030088A145 /* Group.m in Sources */,
+				B01956AF180317B20088A145 /* LightView.m in Sources */,
+				B019569617FD3A040088A145 /* UIView+ColorOfPoint.m in Sources */,
+				B07A68E917F94A6F00F8913F /* Light.m in Sources */,
+				B019568F17FBEE630088A145 /* UICircularSlider.m in Sources */,
+				B01956B21803D93A0088A145 /* ProfileGroupViewController.m in Sources */,
+				B019569217FC14E50088A145 /* ImageService.m in Sources */,
 				B07A68BD17F7CE3600F8913F /* AppDelegate.m in Sources */,
+				B07A68EE17F94BC500F8913F /* DemoLightsFinder.m in Sources */,
 				B07A68C317F7CE3600F8913F /* FirstViewController.m in Sources */,
 				B07A68B917F7CE3600F8913F /* main.m in Sources */,
 			);
@@ -384,6 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CURRENT_PROJECT_VERSION = 0.0.1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartLights/SmartLights-Prefix.pch";
 				INFOPLIST_FILE = "SmartLights/SmartLights-Info.plist";
@@ -397,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CURRENT_PROJECT_VERSION = 0.0.1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SmartLights/SmartLights-Prefix.pch";
 				INFOPLIST_FILE = "SmartLights/SmartLights-Info.plist";
@@ -466,6 +624,7 @@
 				B07A68E017F7CE3600F8913F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B07A68E117F7CE3600F8913F /* Build configuration list for PBXNativeTarget "SmartLightsTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +633,7 @@
 				B07A68E317F7CE3600F8913F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

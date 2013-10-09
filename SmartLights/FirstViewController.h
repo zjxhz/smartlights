@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SmartLight.h"
 
 @interface FirstViewController : UIViewController
+@property(nonatomic, strong) NSArray* lights;
+
+@property(nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property(nonatomic, weak) IBOutlet UIButton* onOffAllButton;
 
 @end
