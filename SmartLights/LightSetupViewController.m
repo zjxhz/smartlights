@@ -141,6 +141,17 @@
             CGPoint validTapLocation = [_colorView convertPoint:reg.view.center fromView:self.view];
             UIColor* color = [self getColorAtPoint:validTapLocation];
             _light.color = color;
+            
+            //set color to device
+            CGFloat redFloat,greenFloat,blueFloat;
+            [color getRed:&redFloat green:&greenFloat blue:&blueFloat alpha:nil];
+            Byte  LEDdata[4];
+            LEDdata[0] = (Byte)(255*blueFloat);
+            LEDdata[1] = (Byte)(255*greenFloat);
+            LEDdata[2] = (Byte)(255*redFloat);
+            LEDdata[3] = 0x00;
+            [self sendData:LEDdata];
+            
             _slider.minimumTrackTintColor = color;
             [self updateOnOffImage];
 //			self.value = translateValueFromSourceIntervalToDestinationInterval(angle, 0, 2*M_PI, self.minimumValue, self.maximumValue);
@@ -209,6 +220,18 @@
         [_onOffButton setBackgroundImage:offImage forState:UIControlStateNormal];
     }
 }
+
+//颜色
+-(void)sendData:(Byte[]) bytes
+{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    NSData *data = [[NSData alloc]initWithBytes:bytes length:4];
+    [appDelegate.bleManager writeValue:0xFFB0
+                    characteristicUUID:0xFFB2
+                                     p:appDelegate.bleManager.activePeripheral
+                                  data:data];
+}
+
 
 //控制灯的开关
 -(void)sendOnOff:(int)flag
