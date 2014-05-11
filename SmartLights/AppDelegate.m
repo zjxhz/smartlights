@@ -9,10 +9,13 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize bleManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    bleManager = [[TIBLECBStandand alloc]init];
+    [bleManager controlSetup:1];
+
     return YES;
 }
 							

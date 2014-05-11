@@ -35,4 +35,8 @@
     return [self.name isEqual:other.name];
 }
 
+-(NSString*)description{
+    return [NSString stringWithFormat:@"%s: %.0f", _name, _brightness];
+}
+
 @end

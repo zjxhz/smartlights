@@ -20,4 +20,5 @@
 @property(nonatomic, weak) IBOutlet UIButton* onOffButton;
 @property(nonatomic, weak) IBOutlet UIImageView* colorView;
 @property(nonatomic, strong) id<SmartLight> light;
+@property(nonatomic) unsigned char* colorData;
 @end

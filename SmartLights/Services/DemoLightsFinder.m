@@ -39,14 +39,32 @@
 
         l.on = arc4random() % 2;
         l.brightness = arc4random() % 101;
-        CGFloat red = (arc4random() % 255) / 255.0;
-        CGFloat green = (arc4random() % 255) / 255.0;
-        CGFloat blue = (arc4random() % 255) / 255.0;
-        l.color = [UIColor colorWithRed:red green:green blue:blue alpha:1];
+//        CGFloat red = (arc4random() % 255) / 255.0;
+//        CGFloat green = (arc4random() % 255) / 255.0;
+//        CGFloat blue = (arc4random() % 255) / 255.0;
+        l.color = [self randomColor];
         [lights addObject:l];
     }
     _lights = lights;
     return lights;
+}
+
+-(UIColor*)randomColor{
+    int r = arc4random() % 5;
+    switch (r) {
+        case 0:
+            return [UIColor redColor];
+        case 1:
+            return [UIColor yellowColor];
+        case 2:
+            return [UIColor purpleColor];
+        case 3:
+            return [UIColor greenColor];
+        case 4:
+            return [UIColor blueColor];
+        default:
+            return [UIColor whiteColor];
+    }
 }
 
 @end

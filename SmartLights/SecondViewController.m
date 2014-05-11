@@ -11,6 +11,7 @@
 #import "Profile.h"
 #import "LightView.h"
 #import "NewProfileViewController.h"
+#import "GroupFinder.h"
 
 @interface SecondViewController ()
 
@@ -37,8 +38,8 @@
     [navButton sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileAdded:) name:PROFILE_ADDED_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupChanged:) name:GROUP_CHANGED_NOTIFICATION object:nil];
 }
 
 -(void)changeProfile:(UIGestureRecognizer*)reg{
@@ -73,7 +74,12 @@
         [_grouppedProfiles addObject:profileDict[key]];
     }
 }
--(void)profileAdded:(Profile*)profile{
+-(void)profileAdded:(NSNotification*)notif{
+    [self groupProfiles];
+    [self.tableView reloadData];
+}
+
+-(void)groupChanged:(id<LightGroup>)group{
     [self groupProfiles];
     [self.tableView reloadData];
 }

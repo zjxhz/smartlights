@@ -24,6 +24,22 @@
     return finder;
 }
 
+-(id)init{
+    if (self = [super init]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupChanged:) name:GROUP_CHANGED_NOTIFICATION object:nil];
+    }
+    return self;
+}
+
+-(void)groupChanged:(NSNotification*)notif{
+    id<LightGroup> group  = notif.object;
+    for (Profile* p in _profiles) {
+        if (p.group == group) {
+            p.group = group;
+        }
+    }
+}
+
 -(NSArray*)findProfiles{
     if (_profiles) {
         return _profiles;

@@ -12,6 +12,8 @@
 #import "ImageService.h"
 #import "GroupsViewController.h"
 #import "LightView.h"
+#import "ScanViewController.h"
+#import "Light.h"
 
 @interface FirstViewController ()
 
@@ -31,9 +33,16 @@
     [navButton addTarget:self action:@selector(showGroups:) forControlEvents:UIControlEventTouchUpInside];
     [navButton sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
+    UIBarButtonItem *scanDeviceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(refreshBlEDevice:)];
+    self.navigationItem.leftBarButtonItem = scanDeviceItem;
     
 }
 
+-(IBAction)refreshBlEDevice:(id)sender{
+    
+    ScanViewController  *scanView = [ScanViewController new];
+    [self.navigationController pushViewController:scanView animated:YES];
+}
 -(void)showGroups:(id)sender{
     [self performSegueWithIdentifier:@"group" sender:sender];
 }
@@ -41,6 +50,46 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self buildLights];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    if(delegate.bleManager.peripherals){
+         NSMutableArray* lights = [[NSMutableArray alloc] init];
+        for (CBPeripheral * p in delegate.bleManager.peripherals) {
+            Light* l = [[Light alloc] init];
+            l.name = p.name;
+            
+            l.on = arc4random() % 2;
+            l.brightness = arc4random() % 101;
+            //        CGFloat red = (arc4random() % 255) / 255.0;
+            //        CGFloat green = (arc4random() % 255) / 255.0;
+            //        CGFloat blue = (arc4random() % 255) / 255.0;
+            l.color = [self randomColor];
+            [lights addObject:l];
+        }
+        _lights = lights;
+        [self buildLights];
+    }
+}
+
+-(UIColor*)randomColor{
+    int r = arc4random() % 5;
+    switch (r) {
+        case 0:
+            return [UIColor redColor];
+        case 1:
+            return [UIColor yellowColor];
+        case 2:
+            return [UIColor purpleColor];
+        case 3:
+            return [UIColor greenColor];
+        case 4:
+            return [UIColor blueColor];
+        default:
+            return [UIColor whiteColor];
+    }
 }
 
 -(void)buildLights{

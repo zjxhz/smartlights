@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define GROUP_CHANGED_NOTIFICATION @"GROUP_CHANGED_NOTIFICATION"
 @protocol GroupFinder <NSObject>
 -(NSArray*)findGroups;
 @end

@@ -6,8 +6,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (ColorOfPoint)
+@interface UIImageView (ColorOfPoint)
 
 - (UIColor *) colorOfPoint:(CGPoint)point;
-
+//- (UIColor*) getPixelColorAtLocation:(CGPoint)point;
+- (UIColor*)colorAtPoint:(CGPoint)point;
+- (unsigned char*) getImageData;
 @end

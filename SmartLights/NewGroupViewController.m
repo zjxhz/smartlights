@@ -8,7 +8,7 @@
 
 #import "NewGroupViewController.h"
 #import "DemoLightsFinder.h"
-
+#import "GroupFinder.h"
 @interface NewGroupViewController ()
 
 @end
@@ -33,6 +33,14 @@
     _tableView.dataSource = self;
     _allLights = [[DemoLightsFinder sharedFinder] findLights];
     _groupName.text = _group.name;
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    _group.name = _groupName.text;
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_CHANGED_NOTIFICATION object:_group];
+    }
+    [super viewWillDisappear:animated];
 }
 
 
