@@ -15,7 +15,9 @@
 #import "ScanViewController.h"
 #import "Light.h"
 
-@interface FirstViewController ()
+@interface FirstViewController (){
+    UIGestureRecognizer* _reg;
+}
 
 @end
 
@@ -37,6 +39,28 @@
     self.navigationItem.leftBarButtonItem = scanDeviceItem;
     
 }
+
+-(void)initNotification
+{
+    //设定通知
+    //发现BLE外围设备
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    //成功连接到指定外围BLE设备
+    [nc addObserver: self
+           selector: @selector(didConectedbleDevice:)
+               name: @"DIDCONNECTEDBLEDEVICE"
+             object: nil];
+}
+
+//连接成功
+-(void)didConectedbleDevice:(CBPeripheral *)peripheral {
+    NSLog(@" BLE 设备连接成功   ！\r\n");
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate.bleManager.activePeripheral discoverServices:nil];
+    [self performSegueWithIdentifier:@"setup_light" sender:_reg];
+}
+
 
 -(IBAction)refreshBlEDevice:(id)sender{
     
@@ -152,7 +176,25 @@
 }
 
 -(void)lightTapped:(UIGestureRecognizer*)reg{
-    [self performSegueWithIdentifier:@"setup_light" sender:reg];
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    if (delegate.bleManager.peripherals) {
+        CBPeripheral * p = delegate.bleManager.peripherals[reg.view.tag];
+        if (!p.isConnected) {
+            [delegate.bleManager.activeCharacteristics removeAllObjects];
+            [delegate.bleManager.activeDescriptors removeAllObjects];
+            delegate.bleManager.activePeripheral = nil;
+            delegate.bleManager.activeService = nil;
+            
+            //发出通知新页面，对指定外围设备进行连接
+            [delegate.bleManager connectPeripheral:p];
+            _reg = reg;
+        } else {
+            [self performSegueWithIdentifier:@"setup_light" sender:reg];
+        }
+    } else {
+        [self performSegueWithIdentifier:@"setup_light" sender:reg];
+    }
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -163,6 +205,8 @@
         controller.light = light;
     }
 }
+
+
 
 -(void)updateOnOffAllButton{
     if ([self anyLightOn]) {
