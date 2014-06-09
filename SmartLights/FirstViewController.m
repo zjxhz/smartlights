@@ -51,6 +51,11 @@
            selector: @selector(didConectedbleDevice:)
                name: @"DIDCONNECTEDBLEDEVICE"
              object: nil];
+    [nc addObserver: self
+           selector: @selector(DownloadCharacteristicOver:)
+               name: @"DOWNLOADSERVICEPROCESSSTEP"
+             object: nil];
+
 }
 
 //连接成功
@@ -58,6 +63,11 @@
     NSLog(@" BLE 设备连接成功   ！\r\n");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate.bleManager.activePeripheral discoverServices:nil];
+}
+
+//成功扫描所有服务特征值
+-(void)DownloadCharacteristicOver:(CBPeripheral *)peripheral {
+    NSLog(@" 获取所有的特征值 ! \r\n");
     [self performSegueWithIdentifier:@"setup_light" sender:_reg];
 }
 
