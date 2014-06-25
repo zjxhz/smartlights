@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-#import "DemoLightsFinder.h"
+#import "BluetoothLightsFinder.h"
 #import "LightSetupViewController.h"
 #import "ImageService.h"
 #import "GroupsViewController.h"
@@ -28,16 +28,20 @@
 {
     [super viewDidLoad];
     self.title = @"灯控列表";
-    _lights = [[DemoLightsFinder sharedFinder] findLights];
     UIButton* navButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [navButton setBackgroundImage:[UIImage imageNamed:@"navbar_btn_bg"] forState:UIControlStateNormal];
     [navButton setTitle:@"灯组" forState:UIControlStateNormal];
     [navButton addTarget:self action:@selector(showGroups:) forControlEvents:UIControlEventTouchUpInside];
     [navButton sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
-    UIBarButtonItem *scanDeviceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(refreshBlEDevice:)];
-    self.navigationItem.leftBarButtonItem = scanDeviceItem;
-    
+    [self initNotification];
+    [BluetoothLightsFinder sharedFinder].delegate = self;
+    [[BluetoothLightsFinder sharedFinder] scanLights];
+}
+
+-(void)didFindLights:(NSArray*)lights{
+    _lights = lights;
+    [self buildLights];
 }
 
 -(void)initNotification
@@ -60,15 +64,15 @@
 
 //连接成功
 -(void)didConectedbleDevice:(CBPeripheral *)peripheral {
-    NSLog(@" BLE 设备连接成功   ！\r\n");
+    NSLog(@"Connected to %@, start to discover services...", peripheral.name);
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate.bleManager.activePeripheral discoverServices:nil];
 }
 
 //成功扫描所有服务特征值
 -(void)DownloadCharacteristicOver:(CBPeripheral *)peripheral {
-    NSLog(@" 获取所有的特征值 ! \r\n");
-    [self performSegueWithIdentifier:@"setup_light" sender:_reg];
+    NSLog(@"Service discovered for %@.", peripheral.name);
+//    [self performSegueWithIdentifier:@"setup_light" sender:_reg];
 }
 
 
@@ -77,36 +81,11 @@
     ScanViewController  *scanView = [ScanViewController new];
     [self.navigationController pushViewController:scanView animated:YES];
 }
+
 -(void)showGroups:(id)sender{
     [self performSegueWithIdentifier:@"group" sender:sender];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self buildLights];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    if(delegate.bleManager.peripherals){
-         NSMutableArray* lights = [[NSMutableArray alloc] init];
-        for (CBPeripheral * p in delegate.bleManager.peripherals) {
-            Light* l = [[Light alloc] init];
-            l.name = p.name;
-            
-            l.on = arc4random() % 2;
-            l.brightness = arc4random() % 101;
-            //        CGFloat red = (arc4random() % 255) / 255.0;
-            //        CGFloat green = (arc4random() % 255) / 255.0;
-            //        CGFloat blue = (arc4random() % 255) / 255.0;
-            l.color = [self randomColor];
-            [lights addObject:l];
-        }
-        _lights = lights;
-        [self buildLights];
-    }
-}
 
 -(UIColor*)randomColor{
     int r = arc4random() % 5;
@@ -189,7 +168,7 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     if (delegate.bleManager.peripherals) {
         CBPeripheral * p = delegate.bleManager.peripherals[reg.view.tag];
-        if (!p.isConnected) {
+//        if (!p.isConnected) {
             [delegate.bleManager.activeCharacteristics removeAllObjects];
             [delegate.bleManager.activeDescriptors removeAllObjects];
             delegate.bleManager.activePeripheral = nil;
@@ -197,10 +176,11 @@
             
             //发出通知新页面，对指定外围设备进行连接
             [delegate.bleManager connectPeripheral:p];
-            _reg = reg;
-        } else {
-            [self performSegueWithIdentifier:@"setup_light" sender:reg];
-        }
+//            _reg = reg;
+//            [self performSegueWithIdentifier:@"setup_light" sender:reg];
+//        } else {
+//            [self performSegueWithIdentifier:@"setup_light" sender:reg];
+//        }
     } else {
         [self performSegueWithIdentifier:@"setup_light" sender:reg];
     }

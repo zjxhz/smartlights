@@ -23,10 +23,10 @@
     return finder;
 }
 
--(NSArray*)findLights{
-    if (_lights) {
-        return _lights;
-    }
+-(void)scanLights{
+//    if (_lights) {
+//        return _lights;
+//    }
     int num = 9;//arc4random() % 9 + 3;
     NSMutableArray* lights = [[NSMutableArray alloc] init];
     for(int i = 0; i < num; ++i){
@@ -46,7 +46,7 @@
         [lights addObject:l];
     }
     _lights = lights;
-    return lights;
+//    return lights;
 }
 
 -(UIColor*)randomColor{

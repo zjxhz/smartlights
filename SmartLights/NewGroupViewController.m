@@ -31,7 +31,7 @@
     [super viewDidLoad];
 	_tableView.delegate = self;
     _tableView.dataSource = self;
-    _allLights = [[DemoLightsFinder sharedFinder] findLights];
+//    _allLights = [[DemoLightsFinder sharedFinder] findLights];
     _groupName.text = _group.name;
 }
 

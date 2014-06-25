@@ -11,6 +11,6 @@
 
 @interface DemoLightsFinder : NSObject<LightsFinder>
 +(DemoLightsFinder*)sharedFinder;
--(NSArray*)findLights;
+
     
 @end

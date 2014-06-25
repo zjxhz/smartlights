@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LightsFinderDelegate.h"
 
 @protocol LightsFinder <NSObject>
 @required
--(NSArray*) findLights;
+-(void)scanLights;
+@property(nonatomic, weak) id<LightsFinderDelegate> delegate;
 @end

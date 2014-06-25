@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SmartLight.h"
+#import "LightsFinderDelegate.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<LightsFinderDelegate>
 @property(nonatomic, strong) NSArray* lights;
 
 @property(nonatomic, weak) IBOutlet UIScrollView* scrollView;
