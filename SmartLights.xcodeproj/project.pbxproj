@@ -38,6 +38,7 @@
 		B07A68DB17F7CE3600F8913F /* SmartLightsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68DA17F7CE3600F8913F /* SmartLightsTests.m */; };
 		B07A68E917F94A6F00F8913F /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68E817F94A6F00F8913F /* Light.m */; };
 		B07A68EE17F94BC500F8913F /* DemoLightsFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */; };
+		B09A29241959AA9B00655236 /* BluetoothLightsFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */; };
 		B0E673A2191E42F400771D7A /* ADCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E67358191E42F400771D7A /* ADCViewController.m */; };
 		B0E673A3191E42F400771D7A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6735A191E42F400771D7A /* BaseViewController.m */; };
 		B0E673A4191E42F400771D7A /* BatteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6735C191E42F400771D7A /* BatteryViewController.m */; };
@@ -216,6 +217,9 @@
 		B07A68EB17F94B9000F8913F /* LightsFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightsFinder.h; sourceTree = "<group>"; };
 		B07A68EC17F94BC500F8913F /* DemoLightsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoLightsFinder.h; sourceTree = "<group>"; };
 		B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoLightsFinder.m; sourceTree = "<group>"; };
+		B09A29221959AA9B00655236 /* BluetoothLightsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothLightsFinder.h; sourceTree = "<group>"; };
+		B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothLightsFinder.m; sourceTree = "<group>"; };
+		B09A29251959AFB900655236 /* LightsFinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightsFinderDelegate.h; sourceTree = "<group>"; };
 		B0E67357191E42F400771D7A /* ADCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCViewController.h; sourceTree = "<group>"; };
 		B0E67358191E42F400771D7A /* ADCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCViewController.m; sourceTree = "<group>"; };
 		B0E67359191E42F400771D7A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -557,6 +561,9 @@
 				B01956A81803086B0088A145 /* DemoProfileFinder.m */,
 				B01956B61803EF110088A145 /* LightCopier.h */,
 				B01956B71803EF110088A145 /* LightCopier.m */,
+				B09A29221959AA9B00655236 /* BluetoothLightsFinder.h */,
+				B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */,
+				B09A29251959AFB900655236 /* LightsFinderDelegate.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1039,6 +1046,7 @@
 				B0E673EC191E47B700771D7A /* SecondView.m in Sources */,
 				B0E673C7191E42F400771D7A /* UMFeedbackViewController.m in Sources */,
 				B0E673A4191E42F400771D7A /* BatteryViewController.m in Sources */,
+				B09A29241959AA9B00655236 /* BluetoothLightsFinder.m in Sources */,
 				B0E6743D191E47FA00771D7A /* BitmapScaleManipulator.m in Sources */,
 				B0E673C5191E42F400771D7A /* UMFeedbackTableViewCellLeft.m in Sources */,
 				B01956AC18030B040088A145 /* Profile.m in Sources */,
@@ -1204,7 +1212,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huanze Xu (R3MNQ8VM33)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.0.4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1216,7 +1224,7 @@
 					"$(PROJECT_DIR)/SmartLights/Demo/UMFeedback",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D222BF45-4E58-40A0-8FE0-E12561C887BD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1227,7 +1235,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Huanze Xu (R3MNQ8VM33)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.0.4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1239,7 +1247,7 @@
 					"$(PROJECT_DIR)/SmartLights/Demo/UMFeedback",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "D222BF45-4E58-40A0-8FE0-E12561C887BD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
