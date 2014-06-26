@@ -66,13 +66,18 @@
 -(void)didConectedbleDevice:(CBPeripheral *)peripheral {
     NSLog(@"Connected to %@, start to discover services...", peripheral.name);
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+//    [appDelegate.bleManager.activePeripheral discoverServices:@[[CBUUID UUIDWithString:@"FFB0"]]];
     [appDelegate.bleManager.activePeripheral discoverServices:nil];
 }
 
 //成功扫描所有服务特征值
 -(void)DownloadCharacteristicOver:(CBPeripheral *)peripheral {
     NSLog(@"Service discovered for %@.", peripheral.name);
-//    [self performSegueWithIdentifier:@"setup_light" sender:_reg];
+    if(!_connected){
+        _statusLabel.text = @"Status: connected";
+        _connected = YES;
+        [self performSegueWithIdentifier:@"setup_light" sender:_reg];
+    }
 }
 
 
@@ -168,15 +173,22 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     if (delegate.bleManager.peripherals) {
         CBPeripheral * p = delegate.bleManager.peripherals[reg.view.tag];
+        CBPeripheral* activePeripheral = delegate.bleManager.activePeripheral;
 //        if (!p.isConnected) {
+        if (activePeripheral.isConnected){
+            [delegate.bleManager.CM cancelPeripheralConnection:activePeripheral];
+        }
+
             [delegate.bleManager.activeCharacteristics removeAllObjects];
             [delegate.bleManager.activeDescriptors removeAllObjects];
             delegate.bleManager.activePeripheral = nil;
             delegate.bleManager.activeService = nil;
             
             //发出通知新页面，对指定外围设备进行连接
+        _connected = NO;
+        _statusLabel.text = [NSString stringWithFormat:@"Status: connecting to %@...", p.name];
             [delegate.bleManager connectPeripheral:p];
-//            _reg = reg;
+            _reg = reg;
 //            [self performSegueWithIdentifier:@"setup_light" sender:reg];
 //        } else {
 //            [self performSegueWithIdentifier:@"setup_light" sender:reg];

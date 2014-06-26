@@ -924,8 +924,8 @@ typedef struct {
 //    float f0 ;
     
     if (!error) {
-        NSLog(@"//step_10 Characteristics of service with UUID : %s found\r\n",
-               [self CBUUIDToString:service.UUID]);
+        NSLog(@"//step_10 Characteristics of service with UUID : %@ found\r\n",service.UUID.UUIDString);
+//               [self CBUUIDToString:]);
         index ++ ;
         
         //开始打印所有服务UUID的所有特征值UUID
@@ -936,7 +936,7 @@ typedef struct {
             CBCharacteristic *c = [service.characteristics objectAtIndex:i];
             [self SaveToActiveCharacteristic:c];
 
-            NSLog(@"//step_10_x Found characteristic %s\r\n",[ self CBUUIDToString:c.UUID]);
+//            NSLog(@"//step_10_x Found characteristic %@\r\n",c.UUID.UUIDString);//[ self CBUUIDToString:c.UUID]);
            
 //            [self DisplayCharacteristicMessage:c];
             /*

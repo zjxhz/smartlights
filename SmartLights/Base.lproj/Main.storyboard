@@ -28,14 +28,20 @@
                                     <action selector="onOffAll:" destination="Qh2-T1-AhA" eventType="touchUpInside" id="5CM-lY-EzY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status: Idle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLZ-9Q-M9j">
+                                <rect key="frame" x="0.0" y="374" width="320" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKz-KV-Uzp">
-                                <rect key="frame" x="0.0" y="55" width="320" height="400"/>
+                                <rect key="frame" x="0.0" y="55" width="320" height="380"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XKz-KV-Uzp" secondAttribute="bottom" id="5cP-1b-Jpc"/>
+                            <constraint firstAttribute="bottom" secondItem="XKz-KV-Uzp" secondAttribute="bottom" constant="20" id="5cP-1b-Jpc"/>
                             <constraint firstAttribute="centerX" secondItem="dtb-n1-2lf" secondAttribute="centerX" id="QVw-tx-wax"/>
                             <constraint firstItem="XKz-KV-Uzp" firstAttribute="top" secondItem="dtb-n1-2lf" secondAttribute="bottom" constant="15" id="S7I-eC-UP6"/>
                             <constraint firstItem="dtb-n1-2lf" firstAttribute="top" secondItem="k9G-2Z-0Wm" secondAttribute="bottom" id="dHv-mN-gCK"/>
@@ -47,6 +53,7 @@
                     <connections>
                         <outlet property="onOffAllButton" destination="dtb-n1-2lf" id="E7p-0P-JvJ"/>
                         <outlet property="scrollView" destination="XKz-KV-Uzp" id="C00-rc-L6L"/>
+                        <outlet property="statusLabel" destination="WLZ-9Q-M9j" id="Qnw-md-qli"/>
                         <segue destination="QFC-G0-GMa" kind="push" identifier="setup_light" id="kC0-nM-vZD"/>
                         <segue destination="Cg7-O5-ekb" kind="push" identifier="group" id="2zg-u3-CsS"/>
                     </connections>

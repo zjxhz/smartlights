@@ -12,8 +12,10 @@
 
 @interface FirstViewController : UIViewController<LightsFinderDelegate>
 @property(nonatomic, strong) NSArray* lights;
+@property BOOL connected;
 
 @property(nonatomic, weak) IBOutlet UIScrollView* scrollView;
+@property(nonatomic, weak) IBOutlet UILabel* statusLabel;
 @property(nonatomic, weak) IBOutlet UIButton* onOffAllButton;
 
 @end
