@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SmartLight.h"
 #import "LightsFinderDelegate.h"
+#import "DeviceManager.h"
 
-@interface FirstViewController : UIViewController<LightsFinderDelegate>
+@interface FirstViewController : UIViewController<LightsFinderDelegate, DeviceManagerDelegate>
 @property(nonatomic, strong) NSArray* lights;
 @property BOOL connected;
 

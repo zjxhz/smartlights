@@ -14,4 +14,5 @@
 @property(nonatomic) BOOL on;
 @property(nonatomic, strong) UIColor* color;
 @property(nonatomic) CGFloat brightness;
+@property(nonatomic, strong) CBPeripheral* peripheral;
 @end

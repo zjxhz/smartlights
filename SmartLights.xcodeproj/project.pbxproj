@@ -39,6 +39,7 @@
 		B07A68E917F94A6F00F8913F /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68E817F94A6F00F8913F /* Light.m */; };
 		B07A68EE17F94BC500F8913F /* DemoLightsFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A68ED17F94BC500F8913F /* DemoLightsFinder.m */; };
 		B09A29241959AA9B00655236 /* BluetoothLightsFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */; };
+		B09A29281961A2E200655236 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B09A29271961A2E200655236 /* DeviceManager.m */; };
 		B0E673A2191E42F400771D7A /* ADCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E67358191E42F400771D7A /* ADCViewController.m */; };
 		B0E673A3191E42F400771D7A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6735A191E42F400771D7A /* BaseViewController.m */; };
 		B0E673A4191E42F400771D7A /* BatteryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E6735C191E42F400771D7A /* BatteryViewController.m */; };
@@ -220,6 +221,8 @@
 		B09A29221959AA9B00655236 /* BluetoothLightsFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothLightsFinder.h; sourceTree = "<group>"; };
 		B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothLightsFinder.m; sourceTree = "<group>"; };
 		B09A29251959AFB900655236 /* LightsFinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightsFinderDelegate.h; sourceTree = "<group>"; };
+		B09A29261961A2E200655236 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
+		B09A29271961A2E200655236 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
 		B0E67357191E42F400771D7A /* ADCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADCViewController.h; sourceTree = "<group>"; };
 		B0E67358191E42F400771D7A /* ADCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADCViewController.m; sourceTree = "<group>"; };
 		B0E67359191E42F400771D7A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 				B09A29221959AA9B00655236 /* BluetoothLightsFinder.h */,
 				B09A29231959AA9B00655236 /* BluetoothLightsFinder.m */,
 				B09A29251959AFB900655236 /* LightsFinderDelegate.h */,
+				B09A29261961A2E200655236 /* DeviceManager.h */,
+				B09A29271961A2E200655236 /* DeviceManager.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1073,6 +1078,7 @@
 				B0E673D5191E466300771D7A /* Tools.m in Sources */,
 				B0E673AA191E42F400771D7A /* UMEGORefreshTableHeaderView.m in Sources */,
 				B0E673A5191E42F400771D7A /* BLEViewController.m in Sources */,
+				B09A29281961A2E200655236 /* DeviceManager.m in Sources */,
 				B0E673A9191E42F400771D7A /* SendViewController.m in Sources */,
 				B019568F17FBEE630088A145 /* UICircularSlider.m in Sources */,
 				B01956B21803D93A0088A145 /* ProfileGroupViewController.m in Sources */,

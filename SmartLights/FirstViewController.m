@@ -34,52 +34,21 @@
     [navButton addTarget:self action:@selector(showGroups:) forControlEvents:UIControlEventTouchUpInside];
     [navButton sizeToFit];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:navButton];
-    [self initNotification];
     [BluetoothLightsFinder sharedFinder].delegate = self;
     [[BluetoothLightsFinder sharedFinder] scanLights];
+    _statusLabel.adjustsFontSizeToFitWidth = NO;
+    _statusLabel.numberOfLines = 0;
 }
 
 -(void)didFindLights:(NSArray*)lights{
+    [DeviceManager sharedInstance].delegate = self;
     _lights = lights;
     [self buildLights];
 }
 
--(void)initNotification
-{
-    //设定通知
-    //发现BLE外围设备
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    
-    //成功连接到指定外围BLE设备
-    [nc addObserver: self
-           selector: @selector(didConectedbleDevice:)
-               name: @"DIDCONNECTEDBLEDEVICE"
-             object: nil];
-    [nc addObserver: self
-           selector: @selector(DownloadCharacteristicOver:)
-               name: @"DOWNLOADSERVICEPROCESSSTEP"
-             object: nil];
-
+-(void)didFailedToConnectToPeripheral:(CBPeripheral *)peripheral withError:(NSError *)error{
+    _statusLabel.text = [NSString stringWithFormat:@"Failed to connect to %@", [peripheral.name substringFromIndex:10]];
 }
-
-//连接成功
--(void)didConectedbleDevice:(CBPeripheral *)peripheral {
-    NSLog(@"Connected to %@, start to discover services...", peripheral.name);
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-//    [appDelegate.bleManager.activePeripheral discoverServices:@[[CBUUID UUIDWithString:@"FFB0"]]];
-    [appDelegate.bleManager.activePeripheral discoverServices:nil];
-}
-
-//成功扫描所有服务特征值
--(void)DownloadCharacteristicOver:(CBPeripheral *)peripheral {
-    NSLog(@"Service discovered for %@.", peripheral.name);
-    if(!_connected){
-        _statusLabel.text = @"Status: connected";
-        _connected = YES;
-        [self performSegueWithIdentifier:@"setup_light" sender:_reg];
-    }
-}
-
 
 -(IBAction)refreshBlEDevice:(id)sender{
     
@@ -170,35 +139,27 @@
 }
 
 -(void)lightTapped:(UIGestureRecognizer*)reg{
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    if (delegate.bleManager.peripherals) {
-        CBPeripheral * p = delegate.bleManager.peripherals[reg.view.tag];
-        CBPeripheral* activePeripheral = delegate.bleManager.activePeripheral;
-//        if (!p.isConnected) {
-        if (activePeripheral.isConnected){
-            [delegate.bleManager.CM cancelPeripheralConnection:activePeripheral];
-        }
-
-            [delegate.bleManager.activeCharacteristics removeAllObjects];
-            [delegate.bleManager.activeDescriptors removeAllObjects];
-            delegate.bleManager.activePeripheral = nil;
-            delegate.bleManager.activeService = nil;
-            
-            //发出通知新页面，对指定外围设备进行连接
+    id<SmartLight> light = _lights[reg.view.tag];
+    CBPeripheral* p = light.peripheral;
+    if (p) {
         _connected = NO;
-        _statusLabel.text = [NSString stringWithFormat:@"Status: connecting to %@...", p.name];
-            [delegate.bleManager connectPeripheral:p];
-            _reg = reg;
-//            [self performSegueWithIdentifier:@"setup_light" sender:reg];
-//        } else {
-//            [self performSegueWithIdentifier:@"setup_light" sender:reg];
-//        }
+        _statusLabel.text = [NSString stringWithFormat:@"Connecting to %@...", [p.name substringFromIndex:10]];
+        _reg = reg;
+        [[DeviceManager sharedInstance] connectPeripheral:p];
+//        [self performSegueWithIdentifier:@"setup_light" sender:reg];
     } else {
         [self performSegueWithIdentifier:@"setup_light" sender:reg];
     }
-    
 }
 
+-(void)didConnectToPeripheral:(CBPeripheral *)peripheral{
+    NSLog(@"CONNECTED TO PERIPHERAL: %@", peripheral.name);
+//    if(!_connected){
+    _statusLabel.text = [NSString stringWithFormat:@"Connected to %@", [peripheral.name substringFromIndex:10]];
+    _connected = YES;
+    [self performSegueWithIdentifier:@"setup_light" sender:_reg];
+//    }
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"setup_light"]) {
         LightSetupViewController* controller = segue.destinationViewController;

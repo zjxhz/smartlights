@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreBluetooth;
 
 @protocol SmartLight <NSObject>
 @required
@@ -14,4 +15,5 @@
 @property(nonatomic) BOOL on;
 @property(nonatomic, strong) UIColor* color;
 @property(nonatomic) CGFloat brightness;
+@property(nonatomic, strong) CBPeripheral* peripheral; 
 @end

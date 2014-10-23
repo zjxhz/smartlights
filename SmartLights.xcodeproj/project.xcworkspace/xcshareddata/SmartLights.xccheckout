@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>88D96888-59B1-473E-8FCB-E83CFAA696F7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SmartLights</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0A240920-4CAF-40B3-86EF-F17BFF4522EF</key>
+		<string>https://bitbucket.org/zjxhz/smartlights.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SmartLights.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0A240920-4CAF-40B3-86EF-F17BFF4522EF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/zjxhz/smartlights.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0A240920-4CAF-40B3-86EF-F17BFF4522EF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0A240920-4CAF-40B3-86EF-F17BFF4522EF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SmartLights</string>
+		</dict>
+	</array>
+</dict>
+</plist>

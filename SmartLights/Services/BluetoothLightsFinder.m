@@ -27,56 +27,60 @@
 -(id) init{
     self = [super init];
     appDelegate = [UIApplication sharedApplication].delegate;
+    _deviceManager = [DeviceManager sharedInstance];
+    _deviceManager.delegate = self;
     return self;
 }
 
+
 -(void)scanLights{
-    [_timer invalidate];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(scanWhenPowerOn) userInfo:nil repeats:YES];
+    [_deviceManager scanWithTimeout:2];
+//    [_timer invalidate];
+//    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(scanWhenPowerOn) userInfo:nil repeats:YES];
 }
 
 -(void)scanWhenPowerOn{
-    if(appDelegate.bleManager.CM.state == CBCentralManagerStatePoweredOn){
-        [_timer invalidate];
-        [self scanPeripherals];
-    }
+//    if(appDelegate.bleManager.CM.state == CBCentralManagerStatePoweredOn){
+//        [_timer invalidate];
+//        [self scanPeripherals];
+//    }
 }
--(NSArray*) findLights{
-    NSMutableArray* lights = [[NSMutableArray alloc] init];
-    if(appDelegate.bleManager.peripherals){
-        for (CBPeripheral * p in appDelegate.bleManager.peripherals) {
-            Light* l = [[Light alloc] init];
-            l.name = [p.name substringFromIndex:12];
-            [lights addObject:l];
-        }
-    }
-    return lights;
-}
+//-(NSArray*) findLights{
+//    NSMutableArray* lights = [[NSMutableArray alloc] init];
+//    if(appDelegate.bleManager.peripherals){
+//        for (CBPeripheral * p in appDelegate.bleManager.peripherals) {
+//            Light* l = [[Light alloc] init];
+//            l.name = [p.name substringFromIndex:12];
+//            [lights addObject:l];
+//        }
+//    }
+//    return lights;
+//}
 
 - (void)scanPeripherals {
-    [self initNotification];
-    if (appDelegate.bleManager.activePeripheral)
-        if(appDelegate.bleManager.activePeripheral.isConnected)
-            [[appDelegate.bleManager CM] cancelPeripheralConnection:[appDelegate.bleManager activePeripheral]];
-
-    [appDelegate.bleManager.peripherals removeAllObjects];
-    [appDelegate.bleManager.activeCharacteristics removeAllObjects];
-    [appDelegate.bleManager.activeDescriptors removeAllObjects];
-    appDelegate.bleManager.activePeripheral = nil;
-    appDelegate.bleManager.activeService = nil;
-    
-    [appDelegate.bleManager findBLEPeripherals:1];
+//    [self initNotification];
+//    if (appDelegate.bleManager.activePeripheral)
+//        if(appDelegate.bleManager.activePeripheral.isConnected)
+//            [[appDelegate.bleManager CM] cancelPeripheralConnection:[appDelegate.bleManager activePeripheral]];
+//
+//    [appDelegate.bleManager.peripherals removeAllObjects];
+//    [appDelegate.bleManager.activeCharacteristics removeAllObjects];
+//    [appDelegate.bleManager.activeDescriptors removeAllObjects];
+//    appDelegate.bleManager.activePeripheral = nil;
+//    appDelegate.bleManager.activeService = nil;
+//    
+//    [appDelegate.bleManager findBLEPeripherals:1];
     
 }
 
 - (void)stopScan{
-    [appDelegate.bleManager stopScan];
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc  removeObserver:self name:@"DIDCONNECTEDBLEDEVICE" object:nil];
-    [nc  removeObserver:self name:@"STOPSCAN" object:nil];
-    [nc  removeObserver:self name:@"BLEDEVICEWITHRSSIFOUND" object:nil];
-    [nc  removeObserver:self name:@"SERVICEFOUNDOVER" object:nil];
-    [nc  removeObserver:self name:@"DOWNLOADSERVICEPROCESSSTEP" object:nil];
+//    [appDelegate.bleManager stopScan];
+//    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//    [nc  removeObserver:self name:@"DIDCONNECTEDBLEDEVICE" object:nil];
+//    [nc  removeObserver:self name:@"STOPSCAN" object:nil];
+//    [nc  removeObserver:self name:@"BLEDEVICEWITHRSSIFOUND" object:nil];
+//    [nc  removeObserver:self name:@"SERVICEFOUNDOVER" object:nil];
+//    [nc  removeObserver:self name:@"DOWNLOADSERVICEPROCESSSTEP" object:nil];
 }
 
 -(void)initNotification
@@ -116,18 +120,18 @@
 
 //扫描ble设备
 -(void)stopScanBLEDevice:(CBPeripheral *)peripheral {
-    NSLog(@" BLE外设 列表 被更新 ！\r\n");
-    NSMutableArray* lights = [[NSMutableArray alloc] init];
-    if(appDelegate.bleManager.peripherals){
-        for (CBPeripheral * p in appDelegate.bleManager.peripherals) {
-            Light* l = [[Light alloc] init];
-            l.name = [p.name substringFromIndex:12];
-            l.color = [UIColor redColor];
-            [lights addObject:l];
-        }
-    }
-    [self.delegate didFindLights:lights];
-    [self stopScan];
+//    NSLog(@" BLE外设 列表 被更新 ！\r\n");
+//    NSMutableArray* lights = [[NSMutableArray alloc] init];
+//    if(appDelegate.bleManager.peripherals){
+//        for (CBPeripheral * p in appDelegate.bleManager.peripherals) {
+//            Light* l = [[Light alloc] init];
+//            l.name = [p.name substringFromIndex:12];
+//            l.color = [UIColor redColor];
+//            [lights addObject:l];
+//        }
+//    }
+//    [self.delegate didFindLights:lights];
+//    [self stopScan];
 }
 
 //服务发现完成之后的回调方法
@@ -141,7 +145,7 @@
 //}
 
 -(void)bleDeviceWithRSSIFound:(NSNotification *) notification{   //此方法刷新次数过多，会导致tableview界面无法刷新的情况发生
-    NSLog(@" 更新RSSI 值 ！\r\n");
+//    NSLog(@" 更新RSSI 值 ！\r\n");
 }
 
 //连接成功
@@ -150,6 +154,17 @@
 //    [appDelegate.bleManager.activePeripheral discoverServices:nil];
 //}
 
-
+#pragma mark DeviceManagerDelegate
+-(void)didFindPeripherals:(NSArray*)peripherals{
+    NSMutableArray* lights = [[NSMutableArray alloc] init];
+    for (CBPeripheral * p in peripherals) {
+        Light* l = [[Light alloc] init];
+        l.name = [p.name substringFromIndex:10];
+        l.color = [UIColor redColor];
+        l.peripheral = p;
+        [lights addObject:l];
+    }
+    [self.delegate didFindLights:lights];
+}
 
 @end

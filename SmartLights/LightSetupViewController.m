@@ -11,6 +11,7 @@
 #import "UIView+ColorOfPoint.h"
 #import "math.h"
 #import "AppDelegate.h"
+#import "DeviceManager.h"
 
 #define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 
@@ -254,10 +255,9 @@
         default:
             break;
     }
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    [appDelegate.bleManager writeValue:0xFFB0
-                    characteristicUUID:0xFFB1
-                                     p:appDelegate.bleManager.activePeripheral
+    [[DeviceManager sharedInstance] writeValue: 0xFFB0
+                    characteristicUUID: 0xFFB1
+                                     p: _light.peripheral
                                   data:data];
 }
 
